@@ -14,7 +14,8 @@ TEMPLATE = app
 CONFIG  += c++11
 
 SOURCES += main.cpp\
-           ./source/mainwindow.cpp
+           ./source/mainwindow.cpp \
+    source/bsimulator.cpp
 
 
 HEADERS  += ./include/mainwindow.h \

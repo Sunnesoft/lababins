@@ -1,0 +1,13 @@
+set grid
+path = "e:/projects/lababins/visual/"
+r = 6371
+
+set parametric
+set angle degree
+set urange [0:360]
+set vrange [-90:90]
+set isosample 10,10
+
+splot   r*cos(u)*cos(v),r*sin(u)*cos(v),r*sin(v) notitle with lines lc rgb"black", \
+		path."results.txt" u 1:2:3 t"true" with lines lc rgb"red",\
+		path."results.txt" u 7:8:9 t"bins" with lines lc rgb"green",\

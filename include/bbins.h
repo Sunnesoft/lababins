@@ -72,8 +72,8 @@ public:
         Math::mat sph{3,1,Math::mat::Undefined};
         Math::LinAlg::cartToSph(_x,sph);
 
-        auto C = (BConv::greenwichToNav(sph[1],sph[2])
-                  *BConv::navToAircraft(angles[0],angles[1],angles[2])).tr();
+        auto C = (BConv::navToAircraft(angles[0],angles[1],angles[2])
+                  *BConv::greenwichToNav(sph[1],sph[2])).tr();
 
         _orientation.setC(C);
     }

@@ -20,8 +20,8 @@ public:
                  const Math::mat &sph,
                  const Math::mat &a)
     {
-        auto acc = BConv::greenwichToNav(sph[1],sph[2])
-                 * BConv::navToAircraft(a[0],a[1],a[2])
+        auto acc = BConv::navToAircraft(a[0],a[1],a[2])
+                 * BConv::greenwichToNav(sph[1],sph[2])
                  * BModel::thrust(x,sph);
 
         return acc;

@@ -48,8 +48,8 @@ public:
         avs[1] = Math::PZ9011::w*cosl(sph[1]);
         avs[2] = Math::PZ9011::w*sinl(sph[1]);
 
-        avs = BConv::greenwichToNav(sph[1],sph[2])
-            * BConv::navToAircraft(a[0],a[1],a[2])
+        avs = /*BConv::greenwichToNav(sph[1],sph[2])
+            * */BConv::navToAircraft(a[0],a[1],a[2])
             * avs;
 
         return avs;

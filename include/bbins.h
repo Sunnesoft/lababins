@@ -20,8 +20,8 @@ public:
                  const Math::mat &sph,
                  const Math::mat &a)
     {
-        auto acc = BConv::greenwichToNav(sph[1],sph[2])
-                 * BConv::navToAircraft(a[0],a[1],a[2])
+        auto acc = BConv::navToAircraft(a[0],a[1],a[2])
+                 * BConv::greenwichToNav(sph[1],sph[2])
                  * BModel::thrust(x,sph);
 
         return acc;
@@ -72,8 +72,8 @@ public:
         Math::mat sph{3,1,Math::mat::Undefined};
         Math::LinAlg::cartToSph(_x,sph);
 
-        auto C = (BConv::greenwichToNav(sph[1],sph[2])
-                  *BConv::navToAircraft(angles[0],angles[1],angles[2])).tr();
+        auto C = (BConv::navToAircraft(angles[0],angles[1],angles[2])
+                  *BConv::greenwichToNav(sph[1],sph[2])).tr();
 
         _orientation.setC(C);
     }

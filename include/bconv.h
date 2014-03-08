@@ -43,23 +43,44 @@ public:
 
     static Math::mat navToAircraft(Math::LD p, Math::LD r, Math::LD y)
     {
-        Math::LD sp = sinl(p),
-                 cp = cosl(p),
-                 sr = sinl(r),
-                 cr = cosl(r),
-                 sy = sinl(y),
-                 cy = cosl(y);
 
-        Math::mat c{3,3};
-        c.to(0,0,cr*cy+sp*sr*sy);
-        c.to(0,1,-sy*cr + sp*sr*cy);
-        c.to(0,2,sr*cp);
-        c.to(1,0,cp*sy);
-        c.to(1,1,cp*cy);
-        c.to(1,2,-sp);
-        c.to(2,0,-sr*sp + sp*cr*sy);
-        c.to(2,1,sr*sy+sp*cr*cy);
-        c.to(2,2,cr*cp);
+        Math::mat c{3,3}, cz{3,3}, cx{3,3}, cy{3,3};
+
+        cz.to(0,0,cos(-y));
+        cz.to(0,1,-sin(-y));
+        cz.to(0,2,0);
+        cz.to(1,0,sin(-y));
+        cz.to(1,1,cos(-y));
+        cz.to(1,2,0);
+        cz.to(2,0,0);
+        cz.to(2,1,0);
+        cz.to(2,2,1);
+
+        cx.to(0,0,1);
+        cx.to(0,1,0);
+        cx.to(0,2,0);
+        cx.to(1,0,0);
+        cx.to(1,1,cos(p));
+        cx.to(1,2,-sin(p));
+        cx.to(2,0,0);
+        cx.to(2,1,sin(p));
+        cx.to(2,2,cos(p));
+
+        cy.to(0,0,cos(r));
+        cy.to(0,1, 0);
+        cy.to(0,2, sin(r));
+        cy.to(1,0, 0);
+        cy.to(1,1, 1);
+        cy.to(1,2, 0);
+        cy.to(2,0, -sin(r));
+        cy.to(2,1, 0);
+        cy.to(2,2, cos(r));
+
+        c = cz*cx*cy;
+        /*ToDo
+         В каком порядке перемножать
+         опытно проверил в матлабе, должно быть cx*cy*cz
+        */
 
         return c;
     }

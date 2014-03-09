@@ -18,8 +18,8 @@ set zlabel "z,km"
 set xrange [*:*]
 set yrange [*:*]
 
-splot   path."results.txt" u 1:2:3 t"true" with lines lc rgb"red",\
-		path."results.txt" u 7:8:9 t"bins" with lines lc rgb"green",\
+splot   path."results.txt" u 1:2:3 t"true" with points lc rgb"red",\
+		path."results.txt" u 7:8:9 t"bins" with points lc rgb"green",\
 		r*cos(u)*cos(v),r*sin(u)*cos(v),r*sin(v) t"Earth" with lines lc rgb"black"
 		
 

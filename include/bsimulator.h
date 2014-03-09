@@ -17,6 +17,7 @@ class BSimulator : public QObject, public QRunnable
 
     Math::mat _initX{6,1};
     Math::mat _initOrientation{3,1};
+    Math::mat _errorInitOrientation{3,1};
 
     bool _IS_STOPPED;
 
@@ -29,6 +30,7 @@ public:
     inline void setStep(Math::LD step){ _step = step; }
     inline void setInitX(const Math::mat &x){ _initX = x;}
     inline void setInitOrientation(const Math::mat &io){ _initOrientation = io;}
+    inline void setErrorInitOrientation(const Math::mat &eio){ _errorInitOrientation = eio;}
 
     inline Math::LD timeStart() const { return _timeStart; }
     inline Math::LD timeEnd() const { return _timeEnd; }

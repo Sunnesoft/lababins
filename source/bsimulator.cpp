@@ -24,7 +24,7 @@ void BSimulator::run()
     BAccBlock acc;
     BBins bins;
 
-    bins.init(_timeStart, _initX, _initOrientation);
+    bins.init(_timeStart, _initX, _initOrientation + _errorInitOrientation);
 
     for(Math::LD time = _timeStart; time <= _timeEnd && !_IS_STOPPED; time += _step)
     {

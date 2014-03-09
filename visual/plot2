@@ -1,0 +1,38 @@
+path = "C:/Users/artem/Documents/GitHub/build-lababins-Desktop_Qt_5_1_1_MinGW_32bit-Debug/"
+                          
+set xlabel "time, c"                
+set ylabel "error X, m"          
+set terminal png
+set output path."err_x.png"
+plot path."results.txt" using (0.01*$0):(1000*($1-$7)) title ""
+
+set ylabel "error Y, m"          
+set terminal png
+set output path."err_y.png"
+plot path."results.txt" using (0.01*$0):(1000*($2-$8)) title "" 
+
+set ylabel "error Z, m"          
+set terminal png
+set output path."err_z.png"
+plot path."results.txt" using (0.01*$0):(1000*($3-$9)) title "" 
+
+
+set xlabel "time, c"                
+set ylabel "error V_x, m/c"          
+set terminal png
+set output path."err_vx.png"
+plot path."results.txt" using (0.01*$0):(1000*($4-$10)) title ""
+
+set xlabel "time, c"                
+set ylabel "error V_y, m/c"          
+set terminal png
+set output path."err_vy.png"
+plot path."results.txt" using (0.01*$0):(1000*($5-$11)) title ""
+
+set xlabel "time, c"                
+set ylabel "error V_z, m/c"          
+set terminal png
+set output path."err_vz.png"
+plot path."results.txt" using (0.01*$0):(1000*($6-$12)) title ""
+
+show output

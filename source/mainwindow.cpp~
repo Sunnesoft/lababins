@@ -66,8 +66,7 @@ void MainWindow::run()
     s->setTimeEnd(ui->tend->text().toDouble());
     s->setStep(ui->step->text().toDouble());
     s->setInitX(x);
-    s->setInitOrientation(angles);
-    s->setErrorInitOrientation(errorAngles);
+    s->setInitOrientation(angles+errorAngles);
 
     connect(s,SIGNAL(report(QString,int)),this,SLOT(report(QString,int)));
     connect(s,SIGNAL(result(QString)),this,SLOT(result(QString)));

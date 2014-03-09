@@ -37,14 +37,17 @@ public:
     inline Math::LD step() const { return _timeEnd; }
     inline Math::mat initX() const {return _initX; }
     inline Math::mat initOrientation() const { return _initOrientation;}
+    inline Math::mat errorInitOrientation() const { return _errorInitOrientation; }
 
     void run();
 
     QString toResultString(const Math::mat &tx,
-                           const Math::mat &bx);
+                           const Math::mat &bx,
+                           Math::LD time);
 
     QString toReportString(const Math::mat &tx,
                            const Math::mat &angles,
+                           const Math::mat &eangles,
                            const Math::mat &bx,
                            const Math::mat &C,
                            const Math::mat &acc,

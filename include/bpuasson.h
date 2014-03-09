@@ -43,7 +43,15 @@ public:
         auto C = _C*W1 - W2*_C;
 
         _C = _C + step*C;
+        correction(_C);
         _time += step;
+    }
+
+    void correction(Math::mat &C)
+    {
+        Math::mat I{3,3,Math::mat::Idty};
+        C = C + 0.5*(I - (C.tr())*C)*C;//row correction
+        C = C + 0.5*C*(I - (C.tr())*C);//column correction
     }
 };
 

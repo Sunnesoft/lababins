@@ -58,19 +58,19 @@ QString BSimulator::toResultString(const Math::mat &tx,
                                    Math::LD time)
 {
     return QString("%1 %2 %3 %4 %5 %6 %7 %8 %9 %10 %11 %12 %13\n")
-            .arg(tx[0],0,'g',10)
-            .arg(tx[1],0,'g',10)
-            .arg(tx[2],0,'g',10)
-            .arg(tx[3],0,'g',10)
-            .arg(tx[4],0,'g',10)
-            .arg(tx[5],0,'g',10)
-            .arg(bx[0],0,'g',10)
-            .arg(bx[1],0,'g',10)
-            .arg(bx[2],0,'g',10)
-            .arg(bx[3],0,'g',10)
-            .arg(bx[4],0,'g',10)
-            .arg(bx[5],0,'g',10)
-            .arg(time,0,'g',10);
+            .arg(tx[0],0,'g',30)
+            .arg(tx[1],0,'g',30)
+            .arg(tx[2],0,'g',30)
+            .arg(tx[3],0,'g',30)
+            .arg(tx[4],0,'g',30)
+            .arg(tx[5],0,'g',30)
+            .arg(bx[0],0,'g',30)
+            .arg(bx[1],0,'g',30)
+            .arg(bx[2],0,'g',30)
+            .arg(bx[3],0,'g',30)
+            .arg(bx[4],0,'g',30)
+            .arg(bx[5],0,'g',30)
+            .arg(time,0,'g',30);
 }
 
 QString BSimulator::toReportString(const Math::mat &tx,
